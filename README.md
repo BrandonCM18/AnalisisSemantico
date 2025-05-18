@@ -56,6 +56,41 @@ El archivo `prueba.cpp` contiene un ejemplo que demuestra las capacidades del an
 - Operaciones aritméticas con diferentes tipos
 - Detección de errores de tipos
 
+## Ejemplo de Salida del Programa
+
+Al ejecutar el analizador con el código de prueba, se obtiene la siguiente salida:
+
+```
+=== Errores Semánticos Encontrados ===
+
+Error: parámetro 'a' redefinido en función 'func'
+Error: tipos incompatibles en suma (i + f)
+
+=== Fin de Errores ===
+
+=== Tabla de Símbolos ===
+
+Tabla de Símbolos:
+Símbolo: x, Tipo: i, Ámbito: global
+Símbolo: y, Tipo: f, Ámbito: global
+Símbolo: func, Tipo: v, Ámbito: global
+Símbolo: a, Tipo: i, Ámbito: func
+Símbolo: x, Tipo: i, Ámbito: func
+
+=== Fin de Tabla de Símbolos ===
+```
+
+Esta salida muestra:
+1. **Errores Detectados**:
+   - Redefinición del parámetro 'a' en la función 'func'
+   - Intento de suma entre tipos incompatibles (int + float)
+
+2. **Tabla de Símbolos**:
+   - Variables globales: 'x' (int) y 'y' (float)
+   - Función 'func' de tipo void
+   - Parámetro 'a' (int) en ámbito 'func'
+   - Variable local 'x' (int) en ámbito 'func'
+
 ## Mensajes de Error
 
 El analizador proporciona mensajes de error descriptivos como:
